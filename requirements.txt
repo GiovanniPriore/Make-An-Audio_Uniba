@@ -12,5 +12,5 @@ pandas
 torchlibrosa
 transformers==4.36.2
 ftfy
-pytorch-lightning==1.7.0
+pytorch-lightning==1.9.5
 torchmetrics==0.11.1

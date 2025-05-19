@@ -2,7 +2,8 @@ import torch
 from audioldm_eval import EvaluationHelper
 import argparse
 
-device = torch.device(f"cuda:{0}")
+device = torch.device("cpu")
+
 
 def parse_args(): 
     parser = argparse.ArgumentParser()

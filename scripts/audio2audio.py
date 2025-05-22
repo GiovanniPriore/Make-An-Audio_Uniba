@@ -94,7 +94,7 @@ def parse_args():
         type=str,
         nargs="?",
         help="dir to write results to",
-        default="outputs/audio2audio-samples"
+        default="/kaggle/working/Make-An-Audio_Uniba/outputs/audio2audio-samples"
     )
 
 

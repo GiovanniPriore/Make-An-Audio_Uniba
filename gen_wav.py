@@ -58,7 +58,7 @@ def parse_args():
 def initialize_model(config, ckpt,device=device):
     config = OmegaConf.load(config)
     model = instantiate_from_config(config.model)
-    model.load_state_dict(torch.load(ckpt,map_location='cpu')["state_dict"], strict=False)
+    model.load_state_dict(torch.load(ckpt, map_location='cpu', weights_only=False)["state_dict"], strict=False)
 
     model = model.to(device)
     model.cond_stage_model.to(model.device)
@@ -104,7 +104,7 @@ def gen_wav(sampler,vocoder,prompt,ddim_steps,scale,duration,n_samples):
 
 if __name__ == '__main__':
     args = parse_args()
-    sampler = initialize_model('configs/text_to_audio/txt2audio_args.yaml', 'useful_ckpts/maa1_full.ckpt')
+    sampler = initialize_model('configs/text_to_audio/txt2audio_args.yaml', 'useful_ckpts/maa1_full-001.ckpt')
     vocoder = VocoderBigVGAN('useful_ckpts/bigvgan',device=device)
     print("Generating audios, it may takes a long time depending on your gpu performance")
     wav_list = gen_wav(sampler,vocoder,prompt=args.prompt,ddim_steps=args.ddim_steps,scale=args.scale,duration=args.duration,n_samples=args.n_samples)

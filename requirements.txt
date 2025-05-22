@@ -1,16 +1,31 @@
-torch-fidelity==0.3.0
-scipy
-importlib_resources
+# Extra index for PyTorch with CUDA 11.3
+--extra-index-url https://download.pytorch.org/whl/cu113
+
+# Core PyTorch packages
+torch
 torchvision>=0.14.0
-tqdm
-omegaconf
-einops
-numpy<=1.23.5
-soundfile
+torchaudio>=0.13.0
+
+# Audio and signal processing
 librosa==0.9.2
-pandas
+soundfile
 torchlibrosa
-transformers==4.36.2
-ftfy
-pytorch-lightning==1.9.5
+
+# ML/DL tools and metrics
+pytorch-lightning==1.7.0
 torchmetrics==0.11.1
+transformers==4.18.0
+einops
+omegaconf
+torch-fidelity==0.3.0
+
+# Utilities
+tqdm
+numpy<=1.23.5
+scipy
+pandas
+ftfy
+importlib_resources
+
+# External dependency (editable install)
+-e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers
